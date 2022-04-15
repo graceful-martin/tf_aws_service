@@ -1,0 +1,50 @@
+{
+    "OutputGroups": [
+      {
+        "CustomName": "hls",
+        "Name": "Apple HLS",
+        "Outputs": [
+          {
+            "Preset": "System-Avc_16x9_270p_14_99fps_400kbps",
+            "NameModifier": "_270p"
+          },
+          {
+            "Preset": "System-Avc_16x9_360p_29_97fps_600kbps",
+            "NameModifier": "_360p"
+          },
+          {
+            "Preset": "System-Avc_16x9_540p_29_97fps_3500kbps",
+            "NameModifier": "_540p"
+          },
+          {
+            "Preset": "System-Avc_16x9_720p_29_97fps_3500kbps",
+            "NameModifier": "_720p"
+          },
+          {
+            "Preset": "System-Ott_Hls_Ts_Avc_Aac_16x9_1920x1080p_30Hz_8.5Mbps",
+            "NameModifier": "_1080p"
+          }
+        ],
+        "OutputGroupSettings": {
+          "Type": "HLS_GROUP_SETTINGS",
+          "HlsGroupSettings": {
+            "SegmentLength": 10,
+            "Destination": "s3://convert-test-outputs/",
+            "MinSegmentLength": 0
+          }
+        }
+      }
+    ],
+    "Inputs": [
+      {
+        "AudioSelectors": {
+          "Audio Selector 1": {
+            "DefaultSelection": "DEFAULT"
+          }
+        },
+        "VideoSelector": {},
+        "TimecodeSource": "ZEROBASED",
+        "FileInput": "s3://convert-test-input/input/15to30.mp4"
+      }
+    ]
+}
