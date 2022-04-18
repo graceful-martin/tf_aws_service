@@ -90,8 +90,8 @@ resource "aws_s3_bucket_cors_configuration" "outputBucket_cors" {
 
 locals {
     s3_origin_id = "outputBucketOrigin"
-    date = "220412"
-    tail = "02"
+    date = "220418"
+    tail = "01"
 }
 
 resource "aws_cloudfront_origin_access_identity" "example_OAI" {
