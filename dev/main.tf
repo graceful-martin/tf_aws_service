@@ -16,6 +16,7 @@ provider "aws" {
     region  = "ap-northeast-2"
 }
 
+
 locals {
     date = "220420"
     tail = "service"
