@@ -3,7 +3,7 @@
 ############################################################
 
 resource "aws_s3_bucket" "inputBucket" {
-    bucket = "terraform-test-input-${local.date}-${local.tail}"
+    bucket = "input-${local.date}-${local.tail}"
 
     tags = {
         Name = "mp4 input bucket"
