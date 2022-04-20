@@ -12,7 +12,7 @@ resource "aws_cloudfront_distribution" "hlsDistribution" {
             origin_access_identity = aws_cloudfront_origin_access_identity.s3_output_OAI.cloudfront_access_identity_path
         }
     }  
-
+    comment             = "for hls distribute"
     enabled             = true
 
     default_cache_behavior {
