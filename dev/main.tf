@@ -18,5 +18,5 @@ provider "aws" {
 
 locals {
     date = "220420"
-    tail = "Service"
+    tail = "service"
 }
