@@ -90,7 +90,7 @@ resource "aws_s3_bucket_cors_configuration" "outputBucket_cors" {
 
 locals {
     s3_origin_id = "outputBucketOrigin"
-    date = "220418"
+    date = "220420"
     tail = "01"
 }
 
