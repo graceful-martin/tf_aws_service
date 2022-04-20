@@ -3,7 +3,7 @@
 ############################################################
 
 resource "aws_s3_bucket" "outputBucket" {
-    bucket = "terraform-test-output-${local.date}-${local.tail}"
+    bucket = "output-${local.date}-${local.tail}"
 
     tags = {
         Name = "hls output bucket"
