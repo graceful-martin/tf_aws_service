@@ -4,6 +4,7 @@
 
 
 resource "aws_cloudfront_distribution" "hlsDistribution" {
+
     origin {
         domain_name = aws_s3_bucket.outputBucket.bucket_regional_domain_name
         origin_id   = "s3_output_origin"
@@ -12,8 +13,9 @@ resource "aws_cloudfront_distribution" "hlsDistribution" {
             origin_access_identity = aws_cloudfront_origin_access_identity.s3_output_OAI.cloudfront_access_identity_path
         }
     }  
-    comment             = "for hls distribute"
+
     enabled             = true
+    aliases             = ["vod.${local.domain}"]
 
     default_cache_behavior {
         allowed_methods  = ["GET", "HEAD", "OPTIONS"]
@@ -63,6 +65,26 @@ resource "aws_cloudfront_distribution" "hlsDistribution" {
 
 
     viewer_certificate {
-        cloudfront_default_certificate = true
+        cloudfront_default_certificate  = false
+        acm_certificate_arn              = data.aws_acm_certificate.SSL_certificate.arn
+        minimum_protocol_version        = "TLSv1.2_2021"
+        ssl_support_method              = "sni-only"
     }
+
 }
+
+provider "aws"{
+  alias = "virginia"
+  region = "us-east-1"
+}
+
+data "aws_acm_certificate" "SSL_certificate" {
+  domain   = "*.${local.domain}"
+  provider = aws.virginia
+}
+
+
+
+
+
+
