@@ -16,8 +16,8 @@ provider "aws" {
     region  = "ap-northeast-2"
 }
 
-
 locals {
-    date = "220420"
+    date = "220421"
     tail = "service"
+    domain = "goormedu-clone.com"
 }
